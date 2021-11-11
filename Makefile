@@ -6,7 +6,7 @@
 #    By: ahuber <marvin@42lausanne.ch>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/07 14:35:45 by ahuber            #+#    #+#              #
-#    Updated: 2021/11/08 10:59:02 by ahuber           ###   ########.fr        #
+#    Updated: 2021/11/11 18:07:34 by ahuber           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,6 +30,7 @@ SRCS	= $(D_M)main.c\
 		  $(D_M)move_check.c\
 		  $(D_M)put_images.c\
 		  $(D_M)utils.c\
+		  $(D_M)sound_play.c\
 
 SOURCES =  $(addprefix $(FOLDER), $(SRCS))
 

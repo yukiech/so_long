@@ -6,7 +6,7 @@
 /*   By: ahuber <marvin@42lausanne.ch>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 10:14:36 by ahuber            #+#    #+#             */
-/*   Updated: 2021/11/08 16:51:29 by ahuber           ###   ########.fr       */
+/*   Updated: 2021/11/11 19:23:05 by ahuber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,16 @@ void	load_images(t_info *info, int img_width, int img_height)
 			"./img/map/exit.xpm", &img_width, &img_height);
 	info->img.end2 = mlx_xpm_file_to_image(info->mlx,
 			"./img/map/exit2.xpm", &img_width, &img_height);
+	info->img.ennemi_1 = mlx_xpm_file_to_image(info->mlx,
+			"./img/enemy/ennemi1.xpm", &img_width, &img_height);
+	info->img.ennemi_2 = mlx_xpm_file_to_image(info->mlx,
+			"./img/enemy/ennemi2.xpm", &img_width, &img_height);
+	info->img.scoreboard = mlx_xpm_file_to_image(info->mlx,
+			"./img/map/scoreboard.xpm", &img_width, &img_height);
+	info->img.endscreen = mlx_xpm_file_to_image(info->mlx,
+			"./img/map/endscreen.xpm", &img_width, &img_height);	
+	info->img.winscreen = mlx_xpm_file_to_image(info->mlx,
+			"./img/map/winscreen.xpm", &img_width, &img_height);	
 }
 
 void	check_images(t_info *info)

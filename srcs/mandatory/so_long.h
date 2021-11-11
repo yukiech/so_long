@@ -6,7 +6,7 @@
 /*   By: ahuber <marvin@42lausanne.ch>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/07 14:33:21 by ahuber            #+#    #+#             */
-/*   Updated: 2021/11/08 17:25:20 by ahuber           ###   ########.fr       */
+/*   Updated: 2021/11/11 19:33:55 by ahuber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,27 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <fcntl.h>
+# include <stdio.h>
+# include <stdint.h>
+# include <stdbool.h>
+# include <limits.h>
+# include <string.h>
 
 typedef struct s_player
 {
 	int	x;
 	int	y;
 }	t_player;
+
+typedef struct s_ennemi
+{
+	int	exist;
+	int	x;
+	int	y;
+	int	x_restart;
+	int	y_restart;
+	int	move;
+} t_ennemi;
 
 typedef struct s_ready
 {
@@ -47,6 +62,10 @@ typedef struct s_img
 	void	*end;
 	void	*end2;
 	void	*scoreboard;
+	void	*ennemi_1;
+	void	*ennemi_2;
+	void	*endscreen;
+	void	*winscreen;
 }	t_img;
 
 typedef struct s_info
@@ -58,11 +77,15 @@ typedef struct s_info
 	int			start;
 	int			coins;
 	t_player	player;
+	t_ennemi	ennemi;
 	char		**map;
 	int			map_height;
 	int			map_width;
-	int			exit_x;	//modif 1
-	int			exit_y; //modif 2
+	int			exit_x;
+	int			exit_y;
+	int			ended;
+	int			argc;
+	char		**argv;
 }	t_info;
 
 # define ROW 11
@@ -74,6 +97,7 @@ typedef struct s_info
 # define KEY_A 0
 # define KEY_S 1
 # define KEY_D 2
+# define KEY_B 11
 
 void	check_char(t_info *info, int i, int j);
 void	init_ready(t_ready *ready);
@@ -98,6 +122,9 @@ void	draw_end(t_info *info, int x, int y);
 void	draw_end2(t_info *info, int x, int y);
 void	draw_img(t_info *info, int i, int j);
 void	draw_scoreboard(t_info *info, int i, int j);
+void	draw_ennemi(t_info *info, int i, int j);
+void	draw_ennemi2(t_info *info, int i, int j);
+void    endscreen(t_info *info, int x, int y);
 char	*ft_itoa(int n);
 int		name_check(char *file);
 int		linecount(char *file);
@@ -112,5 +139,12 @@ void	check_images(t_info *info);
 int		ft_close(t_info *info);
 int		is_valid_char(char c);
 void	print_end(char *str, int len);
+void	game(int argc, char **argv);
+void	startscreen(t_info *info, int x, int y);
+void    sound_music(void);
+void    sound_coin(void);
+void    sound_door(void);
+void    sound_death(void);
+void    sound_kill(void);
 
 #endif
