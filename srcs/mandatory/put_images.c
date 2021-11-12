@@ -6,7 +6,7 @@
 /*   By: ahuber <marvin@42lausanne.ch>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 10:14:36 by ahuber            #+#    #+#             */
-/*   Updated: 2021/11/11 19:23:05 by ahuber           ###   ########.fr       */
+/*   Updated: 2021/11/12 13:42:48 by ahuber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,11 @@ void	load_images(t_info *info, int img_width, int img_height)
 			"./img/char/isaac_right.xpm", &img_width, &img_height);
 	info->img.player_d2 = mlx_xpm_file_to_image(info->mlx,
 			"./img/char/isaac_right2.xpm", &img_width, &img_height);
+	load_images2(info, img_width, img_height);
+}
+
+void	load_images2(t_info *info, int img_width, int img_height)
+{
 	info->img.coin1 = mlx_xpm_file_to_image(info->mlx,
 			"./img/coin/coin.xpm", &img_width, &img_height);
 	info->img.end = mlx_xpm_file_to_image(info->mlx,
@@ -47,9 +52,9 @@ void	load_images(t_info *info, int img_width, int img_height)
 	info->img.scoreboard = mlx_xpm_file_to_image(info->mlx,
 			"./img/map/scoreboard.xpm", &img_width, &img_height);
 	info->img.endscreen = mlx_xpm_file_to_image(info->mlx,
-			"./img/map/endscreen.xpm", &img_width, &img_height);	
+			"./img/map/endscreen.xpm", &img_width, &img_height);
 	info->img.winscreen = mlx_xpm_file_to_image(info->mlx,
-			"./img/map/winscreen.xpm", &img_width, &img_height);	
+			"./img/map/winscreen.xpm", &img_width, &img_height);
 }
 
 void	check_images(t_info *info)

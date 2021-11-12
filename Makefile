@@ -24,7 +24,9 @@ SRCS	= $(D_M)main.c\
 		  $(D_M)draw_player.c\
 		  $(D_M)get_next_line.c\
 		  $(D_M)move_player.c\
+		  $(D_M)move_player2.c\
 		  $(D_M)draw_map.c\
+		  $(D_M)draw_map2.c\
 		  $(D_M)ft_itoa.c\
 		  $(D_M)load_map.c\
 		  $(D_M)move_check.c\

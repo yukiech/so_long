@@ -6,7 +6,7 @@
 /*   By: ahuber <marvin@42lausanne.ch>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 10:14:46 by ahuber            #+#    #+#             */
-/*   Updated: 2021/11/11 19:22:59 by ahuber           ###   ########.fr       */
+/*   Updated: 2021/11/12 13:37:16 by ahuber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,15 @@ void	print_end(char *str, int len)
 	exit(1);
 }
 
-void    endscreen(t_info *info, int x, int y)
+void	endscreen(t_info *info, int x, int y)
 {
-    mlx_put_image_to_window(info->mlx, info->win, info->img.endscreen,
-        x, y);
+	mlx_put_image_to_window(info->mlx, info->win, info->img.endscreen,
+		x, y);
 }
 
-//void    winscreen(t_info *info, int x, int y)
-//{
- //   mlx_put_image_to_window(info->mlx, info->win, info->img.startscreen,
-  //      x, y);
-//}
+void	death(t_info *info)
+{
+	sound_death();
+	endscreen(info, 0, 0);
+	info->ended = 1;
+}
